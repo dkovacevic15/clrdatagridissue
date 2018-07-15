@@ -1,0 +1,17 @@
+<clr-datagrid
+[clDgRowSelection]="true"
+(clrDgSingleSelectedChange)="onSelect($event)"
+>
+  <clr-dg-column *ngFor="let field of fields">
+    {{ field | separateCamelCase | titlecase }}
+  </clr-dg-column>
+
+  <clr-dg-row
+    *clrDgItems="let item of items; let i = index"
+    [clrDgItem]="item"
+    >
+    <clr-dg-cell *ngFor="let field of fields">
+      <span>{{ item[field] }}</span>
+    </clr-dg-cell>
+  </clr-dg-row>
+</clr-datagrid>
